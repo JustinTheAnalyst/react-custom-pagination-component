@@ -29,12 +29,12 @@ const Example2 = () => {
     const firstPage = () => setPage(1)
 
     const pagesArray = Array(users.total_pages).fill().map((_, index) => index + 1)  
-
+console.log(isPreviousData);
     const nav = (
         <nav className="nav-ex2">
             <button onClick={firstPage} disabled={isPreviousData || page === 1}>&lt;&lt;</button>
             {/* Removed isPreviousData from PageButton to keep button focus color instead */}
-            {pagesArray.map(pg => <PageButton key={pg} pg={pg} setPage={setPage} />)}
+            {pagesArray.map(pg => <PageButton key={pg} pg={pg} setPage={setPage} isPreviousData={isPreviousData} />)}
             <button onClick={lastPage} disabled={isPreviousData || page === users.total_pages}>&gt;&gt;</button>
         </nav>
     )
